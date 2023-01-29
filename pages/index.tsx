@@ -33,6 +33,10 @@ const Home: NextPage<{ liff: Liff | null; liffError: string | null }> = ({
         >
           LIFF Documentation
         </a>
+        <div className="hero">
+          <h1>Hi! I am Cozee</h1>
+          <h2>The Roommate Matchmaking Platform</h2>
+        </div>
       </main>
     </div>
   );
