@@ -1,10 +1,13 @@
-import type { Liff } from "@line/liff";
 import Stack from "@mui/material/Stack";
 import Chip from '@mui/material/Chip';
 import type { NextPage } from "next";
 import { Box, Button } from "@mui/material";
+import { useLiff } from "@/context/LiffProvider";
 
-const Home: NextPage<{ liff: Liff | null; liffError: string | null }> = ({ liff, liffError }) => {
+
+const Home: NextPage = () => {
+  const { liff, liffError } = useLiff();
+
   return (
     <Stack
       justifyContent='center'
