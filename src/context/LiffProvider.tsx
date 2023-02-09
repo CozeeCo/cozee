@@ -13,7 +13,9 @@ const useInitLiff = () => {
             .then((liff) => {
                 console.log("LIFF init...");
                 liff
-                    .init({ liffId: process.env.NEXT_PUBLIC_LIFF_ID! })
+                    .init({
+                        liffId: process.env.NEXT_PUBLIC_LIFF_ID!,
+                    })
                     .then(() => {
                         console.log("LIFF init succeeded.");
                         setLiffObject(liff);
@@ -28,7 +30,12 @@ const useInitLiff = () => {
     return { liffObject, liffError };
 }
 
-const liffContext = createContext<any>(undefined);
+type LiffContextType = {
+    liff: Liff | null;
+    liffError: string | null;
+}
+
+const liffContext = createContext<LiffContextType | undefined>(undefined);
 
 interface ILiffProviderProps {
     children: ReactNode

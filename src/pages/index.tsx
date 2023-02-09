@@ -3,10 +3,23 @@ import Chip from '@mui/material/Chip';
 import type { NextPage } from "next";
 import { Box, Button } from "@mui/material";
 import { useLiff } from "@/context/LiffProvider";
-
+import { useEffect } from "react";
 
 const Home: NextPage = () => {
   const { liff, liffError } = useLiff();
+
+  useEffect(() => {
+    if (liff?.isLoggedIn()) {
+      liff.getProfile().then((profile) => {
+        console.log(profile)
+      });
+    } else {
+      liff?.login({
+        redirectUri: 'https://localhost:3000/'
+      });
+    }
+  }, [liff])
+
 
   return (
     <Stack
