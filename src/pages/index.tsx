@@ -15,7 +15,7 @@ const Home: NextPage = () => {
       });
     } else {
       liff?.login({
-        redirectUri: 'https://localhost:3000/'
+        redirectUri: process.env.NEXT_PUBLIC_NGROK_HOST + '/profile'
       });
     }
   }, [liff])
